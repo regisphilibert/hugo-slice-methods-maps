@@ -1,8 +1,19 @@
 {{ define "main" }}
   <h1>{{ .Title }}</h1>
-
   {{ .Content }}
 
+  <hr>
+  Uniq of <code>slice_of_maps_3</code> <br>
+  {{/* Error below */}}
+  {{ printf "%#v" (uniq .Params.slice_of_maps_3) }}
+  <hr>
+  Intersect of Maps: <br>
+  {{ printf "%#v" (intersect .Params.slice_of_maps_1 .Params.slice_of_maps_2) }}
+  <hr>
+  <hr>
+  Intersect of Slices: <br>
+  {{ printf "%#v" (intersect .Params.slice_1 .Params.slice_2) }}
+  <hr>
   {{ range .Pages.ByTitle }}
     <a href="{{ .RelPermalink }}">{{ .RelPermalink }}</a>
     <br>
